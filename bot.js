@@ -8,7 +8,7 @@ const client = new commando.Client();
 
 client.on('ready', () => {
     console.log('Logged in!');
-    client.user.setGame(':sigh:');
+    client.user.setGame(':sighPLEASEWORK:');
 })
 
 client.login(BOT_TOKEN);
