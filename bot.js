@@ -1,5 +1,5 @@
 // Requires 
-const commando = require('discord.js');
+const commando = require('discord.js-commando');
 const path = require('path');
 const {BOT_TOKEN, OWNER} = process.env; 
 
