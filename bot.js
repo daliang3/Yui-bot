@@ -1,11 +1,29 @@
-// Requires
-const Discord = require('discord.js');
+// Requires 
+const commando = require('discord.js-commando');
+const sqlite = require('sqlite');
+const path = require('path');
 
-// Create an instance of a Discord client
-const client = new Discord.Client();
-// The bot is ready
+// Create an instance of a Commando client
+const client = new commando.Client({
+    commandoPrefix: './',
+    owner: process.env.OWNER
+});
+
+client.setProvider(
+    sqlite.open(path.join(__dirname, 'settings.sqlite3')).then(db => new 
+    commando.SQLiteProvider(db))
+).catch(console.error);
+
+client.registry
+        .registerGroups([
+            ['pad', 'Puzzles and Waifus']
+        ])
+        .registerDefaults()
+        .registerCommandsIn(path.join(__dirname, 'commands'));
+
 client.on('ready', () => {
-  console.log('Logged On');
+    console.log('Logged in!');
+    client.user.setGame(':thinking:');
 })
 
-client.login(process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN);
