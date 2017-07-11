@@ -22,4 +22,4 @@ module.exports = class RollCmd extends Command{
             .setColor(0x00AE86);
         message.channel.send({embed});
     }
-}
+};
