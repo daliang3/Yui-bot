@@ -1,12 +1,12 @@
 // Requires 
 const commando = require('discord.js-commando');
-// const sqlite = require('sqlite');
 const path = require('path');
+const {BOT_TOKEN, OWNER} = process.env; 
 
 // Create an instance of a Commando client
 const client = new commando.Client({
     commandPrefix: './',
-    owner: process.env.OWNER
+    owner: OWNER
 });
 
 client.registry
@@ -21,4 +21,4 @@ client.on('ready', () => {
     client.user.setGame(':thinking:');
 })
 
-client.login(process.env.BOT_TOKEN);
+client.login(BOT_TOKEN);
