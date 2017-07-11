@@ -5,7 +5,7 @@ const path = require('path');
 
 // Create an instance of a Commando client
 const client = new commando.Client({
-    commandoPrefix: './',
+    commandPrefix: './',
     owner: process.env.OWNER
 });
 
